@@ -32,15 +32,13 @@ export class PostService {
         }
       }
       return postsArray
-      
-    })
+      })
     )
-     
   }
+
+deletePosts() {
+  return this.http.delete('https://budget-dfc78.firebaseio.com/posts.json')
+}
+
 }
  
-  // getTransactionsByCategory(category:string): Transaction[] {
-  //   return this.postsArray.filter( t=>t.category === category)
-  // }
-  
-

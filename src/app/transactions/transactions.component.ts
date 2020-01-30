@@ -36,8 +36,12 @@ export class TransactionsComponent implements OnInit {
       });
     }
 
-  // refreshGroceries() {
-  //   this.groceriesList = this.postsService.getTransactionsByCategory()
-  // }
+    onClearPosts() {
+      this.postsService.deletePosts().subscribe(() =>{
+        this.transactions = []
+        this.groceriesList = []
+        this.transList = []
+      })
+    }
   
 }
