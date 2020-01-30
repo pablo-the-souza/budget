@@ -1,0 +1,79 @@
+
+<div class="row transactions">
+  <h1>Transactions</h1>
+  <div class="col-xs-4">
+    <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+      <div class="form-group">
+        <label for="name">Transaction Name</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="name"
+        name="name"
+        ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Transaction Amount</label>
+        <input 
+        type="number" 
+        class="form-control" 
+        id="amount"
+        name="amount"
+          ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select 
+          class="form-control" 
+          id="category"
+          name="category"
+            ngModel>
+          <option>Groceries</option>
+          <option>Transportation</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-10">
+    
+    <ul class="list-group">
+      <a 
+      class="list-group-item" 
+      style="cursor:pointer"
+      *ngFor="let transaction of transactions">
+    {{ transaction.name }} ({{ transaction.amount }}) - ({{ transaction.category }})</a>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-10">
+    <h1>Groceries</h1>
+    <ul class="list-group">
+      <a 
+      class="list-group-item" 
+      style="cursor:pointer"
+      *ngFor="let grocery of groceriesList">
+    {{ grocery.name }} ({{ grocery.amount }}) - ({{ grocery.category }})</a>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-10">
+    <h1>Transportation</h1>
+    <ul class="list-group">
+      <a 
+      class="list-group-item" 
+      style="cursor:pointer"
+      *ngFor="let item of transList">
+    {{ item.name }} ({{ item.amount }}) - ({{ item.category }})</a>
+    </ul>
+  </div>
+</div>
