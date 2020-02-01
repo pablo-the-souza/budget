@@ -43,6 +43,11 @@
   </div>
 </div>
 <hr>
+<div *ngIf="error" class="alert alert-danger">
+  <h1>An error Ocurred!</h1>
+  <p>{{ error }}</p>
+  <button class="btn btn-danger" (click)="onHandleError()"></button>
+</div>
 <div class="row">
   <div class="col-xs-10">
     
@@ -50,8 +55,11 @@
       <a 
       class="list-group-item" 
       style="cursor:pointer"
-      *ngFor="let transaction of transactions">
-    {{ transaction.name }} ({{ transaction.amount }}) - ({{ transaction.category }})</a>
+      *ngFor="let transaction of transactions; let i=index" 
+      (click)="onEditItem(i)"
+      >
+    {{ transaction.name }} ({{ transaction.amount }}) - ({{ transaction.category }})
+    </a>
     </ul>
   </div>
 </div>
@@ -76,7 +84,8 @@
       <a 
       class="list-group-item" 
       style="cursor:pointer"
-      *ngFor="let item of transList">
+      *ngFor="let item of transList"
+    >
     {{ item.name }} ({{ item.amount }}) - ({{ item.category }})</a>
     </ul>
   </div>

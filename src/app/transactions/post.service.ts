@@ -10,7 +10,6 @@ export class PostService {
   constructor(private http: HttpClient) {
     
   }
-
   createAndStorePost(name: string, amount: number, category: string) {
     const postData: Transaction = {name: name, amount: amount,  category: category}
     return this.http
